@@ -9,7 +9,8 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-.idea/
+ticketing/.idea
+ticketing/venv
 venv/
 build/
 develop-eggs/
