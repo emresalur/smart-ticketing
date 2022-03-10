@@ -44,10 +44,15 @@
 	<script>
 		function toValidate(){
 			var val = new validate({
+				/*rules里面是检验规则，
+				*key为需要检验的input的id,
+				*value为此input对应的检验规则
+				*/
 				rules:{
 					card_name2:"email",
 					card_name3:"password"
 				},
+				/*submitFun里面为检验成功后要执行的方法*/
 				submitFun:function(){
 					toSubmit();
 				}
