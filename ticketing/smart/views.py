@@ -49,8 +49,8 @@ def active(request):
             print(sec)
             link = settings.NOW_HOST + "go_active?s=" + sec + "&uid=" + str(user.id)
             print(link)
-            # res = send_mail('click this link active:  {}'.format(link),
-            #                 settings.EMAIL_HOST_USER, [user.email, ])
+            res = send_mail('click this link active:  {}'.format(link),
+                            settings.EMAIL_HOST_USER, [user.email, ])
         except Exception as e:
             print(e)
         return render(request, "active.html", locals())

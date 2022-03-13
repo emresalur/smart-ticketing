@@ -101,7 +101,7 @@ def do_register(request):
                 link = settings.NOW_HOST + "go_active?s=" + sec + "&uid=" + str(new_user.id)
                 print(link)
                 res = send_mail('click this link active:  {}'.format(link),
-                                settings.EMAIL_HOST_USER, [user.email, ])
+                                settings.EMAIL_HOST_USER, [username, ])
             except Exception as e:
                 print(e)
             return redirect("accounts:login")
