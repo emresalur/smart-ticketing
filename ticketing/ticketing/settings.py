@@ -22,6 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-(^56-gyqopdo1+ngy(5+p++d0ad*nk8!sq#b&q5+8&2ye#guf)'
 
+USER_KEY = 'SECURITYHSGU'
+
+NOW_HOST = "http://127.0.0.1:8000/"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -37,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+    'smart'
 ]
 
 MIDDLEWARE = [
@@ -141,3 +146,15 @@ AUTH_USER_MODEL = 'accounts.UserProfile'
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_URL = '/accounts/logout'
+
+
+#mail config
+EMAIL_HOST = 'smtp.163.com'
+# 设置端口号，为数字
+EMAIL_PORT = 25
+#设置发件人邮箱
+EMAIL_HOST_USER = '15010226955@163.com'
+# 设置发件人 授权码
+EMAIL_HOST_PASSWORD = 'PWTYOXQEQWFQYSMO'
+# 设置是否启用安全链接
+EMAIL_USER_TLS = True

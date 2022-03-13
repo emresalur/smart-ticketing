@@ -5,10 +5,10 @@ from django.contrib.auth.hashers import make_password
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username')
+    list_display = ('id', 'username', "is_teacher", "have_active")
     fieldsets = (
         ['用户信息', {
-            'fields': ('username', 'mpassword', "avatar","is_superuser"),
+            'fields': ('username', 'mpassword', "is_teacher","have_active"),
         }],
 
     )
