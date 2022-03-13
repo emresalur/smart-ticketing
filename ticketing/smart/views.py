@@ -154,7 +154,7 @@ def admin_detail(request):
             if len(mid) == 0:
                 msg = "no rid"
                 return render(request, "error.html", locals())
-            mainReq = MainRequest.objects.filter(user=user, id=mid)
+            mainReq = MainRequest.objects.filter(id=mid)
             if len(mainReq) == 0:
                 msg = "no request info"
                 return render(request, "error.html", locals())
