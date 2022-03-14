@@ -6,9 +6,30 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Requests</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<style>
+		label {
+			display: inline-block;
+			max-width: 100%;
+			margin-bottom: 5px;
+			font-weight: 700;
+			color: #fff;
+		}
+
+		h1 {
+			color: #000;
+		}
+
+		table thead tr th {
+			color: #000;
+		}
+
+		table tbody tr td {
+			color: #000;
+		}
+	</style>
 </head>
 
-<body>
+<body style="background: url('../1/img/bg2.jpg');">
 	<div class="container">
 		<h1>My Requests</h1>
 		<table width="600" class="table table-bordered table-striped table-hover">
@@ -20,31 +41,36 @@
 			<tr>
 				<td>1</td>
 				<td>2</td>
-				<td>22</td>
+				<td><button  onclick="toSubmit()">22</button></td>
 			</tr>
 			<tr>
 				<td>1</td>
 				<td>2</td>
-				<td>22</td>
+				<td><button  onclick="toSubmit()">22</button></td>
 			</tr>
 			<tr>
 				<td>1</td>
 				<td>2</td>
-				<td>22</td>
+				<td><button  onclick="toSubmit()">22</button></td>
 			</tr>
 			<tr>
 				<td>1</td>
 				<td>2</td>
-				<td>22</td>
+				<td><button  onclick="toSubmit()">22</button></td>
 			</tr>
 			<tr>
 				<td>1</td>
 				<td>2</td>
-				<td>22</td>
+				<td><button  onclick="toSubmit()">22</button></td>
 			</tr>
 		</table>
-
 	</div>
+	<script>
+		function toSubmit(){
+			var test = window.location.href;
+			window.open(test.replace('myrequests','detail'));
+		}
+	</script>
 </body>
 
 </html>
