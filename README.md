@@ -4,7 +4,7 @@
 - python version 3.7
 
 # installation
--pip install -r requirement.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
+- pip install -r requirement.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
 - python manage.py runserver
 - chrome: https://127.0.0.1:8000/
 - admin: page: https://127.0.0.1:8000/admin
