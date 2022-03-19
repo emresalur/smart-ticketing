@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>index</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css" />
+	<style>
+		label {
+			display: inline-block;
+			max-width: 100%;
+			margin-bottom: 5px;
+			font-weight: 700;
+			color: #fff;
+		}
+	</style>
+</head>
+
+<body style="background: url('../1/img/bg2.jpg');">
+	<div class="container">
+		<form action="#" method="post" style="border: 1px solid #8e8b8b;padding: 20px;margin-top: 20px;">
+			<fieldset>
+				<div class="form-group">
+					<label>EMAIL:</label>
+					<input type="email" class="form-control" name="email" id="card_name2" placeholder="" />
+				</div>
+				<div class=" form-group">
+					<label>password:</label>
+					<input type="password" class="form-control" name="pwd" id="card_name3"/>
+				</div>
+				<button type="button" class="btn btn-default" id="singup" onclick="toValidate()">sign up</button>
+				<button type="button" class="btn btn-default"><a href="index.html">sign in</a></button>
+			</fieldset>
+		</form>
+	</div>
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.js"></script>
+	<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/validate.js"></script>
+	
+	<script>
+		function toValidate(){
+			var val = new validate({
+				/*rules里面是检验规则，
+				*key为需要检验的input的id,
+				*value为此input对应的检验规则
+				*/
+				rules:{
+					card_name2:"email",
+					card_name3:"password"
+				},
+				/*submitFun里面为检验成功后要执行的方法*/
+				submitFun:function(){
+					toSubmit();
+				}
+			})
+		}
+		function toSubmit(){
+			alert("验证通过，提交啦 ！！！")
+			var test = window.location.href;
+			window.open(test.replace('signup','index'));
+		}
+	</script>
+</body>
+
+</html>

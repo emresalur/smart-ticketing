@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>index</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css" />\
+	<style>
+		label {
+			display: inline-block;
+			max-width: 100%;
+			margin-bottom: 5px;
+			font-weight: 700;
+			color: #fff;
+		}
+	</style>
+</head>
+
+<body style="background: url('/static/img/bg2.jpg');">
+	<div class="container">
+		<form action="/accounts/login" method="post" style="border: 1px solid #8e8b8b;padding: 20px;margin-top: 20px;">
+			<fieldset>
+                {% csrf_token %}
+				<div class="form-group">
+					<label>EMAIL:</label>
+					<input type="email" class="form-control" name="username" id="card_name2" placeholder="" />
+				</div>
+				<div class=" form-group">
+					<label>password:</label>
+					<input type="password" class="form-control" name="password" id="card_name3"/>
+				</div>
+				<button type="submit" class="btn btn-default">sign in</button>
+				<a href="/accounts/register">sign up</a>
+			</fieldset>
+		</form>
+	</div>
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.js"></script>
+	<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/validate.js"></script>
+
+    <script>
+        {% if errorinfo %}
+            alert("{{ errorinfo }}")
+        {% endif %}
+    </script>
+	<script>
+		function toValidate(){
+			var val = new validate({
+				rules:{
+					card_name2:"email",
+					card_name3:"password"
+				},
+				submitFun:function(){
+					toSubmit();
+				}
+			})
+		}
+		function toSubmit(){
+			var test = window.location.href;
+			window.open(test.replace('index','signin'));
+		}
+	</script>
+</body>
+
+</html>

@@ -7,7 +7,7 @@ from django.contrib.auth.hashers import make_password
 class UserProfileAdmin(admin.ModelAdmin):
     list_display = ('id', 'username', "is_teacher", "have_active")
     fieldsets = (
-        ['User Information', {
+        ['用户信息', {
             'fields': ('username', 'mpassword', "is_teacher","have_active"),
         }],
 

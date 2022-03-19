@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Requests</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+	<style>
+		label {
+			display: inline-block;
+			max-width: 100%;
+			margin-bottom: 5px;
+			font-weight: 700;
+			color: #fff;
+		}
+	</style>
+</head>
+
+<body style="background: url('/static/img/bg2.jpg');">
+	<div class="container">
+		<form action="/admin_detail" method="post" style="border: 1px solid #8e8b8b;padding: 20px;margin-top: 20px;">
+        {% csrf_token %}
+			<fieldset>
+				<div class="form-group">
+					<label>{{ mainReq.subject }}</label>
+					<div style="display: flex;border-top: 1px solid #8e8b8b;">
+						<label>{{ now_date }}</label>&nbsp;&nbsp;&nbsp;&nbsp;<label>{{ mainReq.user.username }}</label>
+					</div>
+				</div>
+				<hr>
+				<div class="form-group">
+                    <label>{{ mainReq.user.username }} subject!</label></br>
+                    <textarea name="studescrition" id="descrition" style="width: 100%;" rows="10" disabled>{{ mainReq.descrition }}</textarea>
+                    <label>reply</label></br>
+                    <input type="text" class="form-control" name="" placeholder="to:" value="{{ mainReq.user.username }}"/>
+                    <input type="hidden" class="form-control" name="rid" value="{{ mainReq.id }}"/>
+                    <textarea placeholder="input your replay" name="replay" id="descrition" style="width: 100%;" rows="10">{{ mainReq.reply_content }}</textarea>
+					<button class="btn-info btn">share</button>
+				</div>
+                <div class="form-group">
+					<hr>
+                    {% if mainReq.reply_content %}
+                        <div style="display: flex;">
+                            <label>{{ mainReq.reply_user.username }}</label>&nbsp;&nbsp;&nbsp;&nbsp;<label>{{ now_date }}</label> &nbsp;&nbsp;&nbsp;&nbsp;<label>have replay</label>
+                        </div>
+                    {% else %}
+                        <div style="display: flex;">
+                            <button type="submit">replay<button>
+                        </div>
+                    {% endif %}
+                </div>
+			</fieldset>
+		</form>
+	</div>
+</body>
+
+</html>
