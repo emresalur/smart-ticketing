@@ -16,8 +16,8 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			  <ul class="nav navbar-nav navbar-right">
-				<li><a href="/">{{ request.user.username }}</a></li>
-				<li><a href="/accounts/logout">logout</a></li>
+				<li><a href="/"> Welcome {{ request.user.username }}</a></li>
+				<li><a href="/accounts/logout">Log Out</a></li>
 			  </ul>
 			</div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
@@ -31,7 +31,7 @@
 			<br><br><br>
 				<a class="btn btn-default" href="/myrequests">Check Existing Requests</a>
             <br><br><br>
-				<a class="btn btn-default" href="/faq">faq</a>
+				<a class="btn btn-default" href="/faq">Frequently Asked Questions</a>
 		</form>
 	</div>
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
