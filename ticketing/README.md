@@ -1,5 +1,5 @@
 # 环境安装
-- python=3.7
+- python>=3.7
 
 # 安装方法
 - pip install -r requirment.txt -i https://pypi.tuna.tsinghua.edu.cn/simple/
