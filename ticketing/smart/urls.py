@@ -12,5 +12,7 @@ urlpatterns = [
     url(r"^detail$", detail, name="detail"),
     url(r"^go_active$", go_active, name="go_active"),
     url(r"^active$", active, name="active"),
+    url(r"^share$", share, name="share"),
+
     url(r"^admin_detail$", admin_detail, name="admin_detail"),
 ]

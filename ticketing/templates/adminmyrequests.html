@@ -74,7 +74,7 @@
 					<td>{{ req.subject }}</td>
 					<td>{{ req.descrition }}</td>
 					<td>{{ req.priority }}</td>
-                    {% if req.reply_content %}
+                    {% if req.is_share %}
                         <td>have replay</td>
                     {% else %}
                         <td style="color: red">wait replay</td>

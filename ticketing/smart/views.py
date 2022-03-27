@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import MainRequest
+from .models import MainRequest, Comments
 from accounts.models import UserProfile
 from datetime import date, timedelta
+from django.views.decorators.csrf import csrf_exempt
 import time
 import hashlib
 import json
@@ -24,7 +25,7 @@ def index(request):
 
 def faq(request):
     try:
-        pass
+        all_requests = MainRequest.objects.filter(is_share=True)
     except Exception as e:
         print(e)
     return render(request, "faq.html", locals())
@@ -101,7 +102,7 @@ def myrequests(request):
 def teacher(request):
     try:
         user = request.user
-        all_my_request = MainRequest.objects.filter().order_by("id")
+        all_my_request = MainRequest.objects.filter(is_share=False).order_by("id")
     except Exception as e:
         print(e)
     return render(request, "adminmyrequests.html", locals())
@@ -182,13 +183,40 @@ def admin_detail(request):
                 msg = "no request info"
                 return render(request, "error.html", locals())
             mainReq = mainReq[0]
-            mainReq.reply_user = user
-            mainReq.reply_content = replay
-            mainReq.save()
+            comments = Comments()
+            comments.main_requests = mainReq
+            comments.content = replay
+            comments.user = user
+            comments.save()
             res = send_mail('requests replay', 'your requests have be reply, just have a look! ',
                             settings.EMAIL_HOST_USER, [mainReq.user.email, ])
-            return redirect("/teacher")
+            return redirect("/admin_detail?rid=" + mid)
     except Exception as e:
         print(e)
         msg = "SystemError"
         return render(request, "error.html", locals())
+
+
+@csrf_exempt
+def share(request):
+    try:
+        user = request.user
+        datas = json.loads(request.body)
+        print(datas)
+        id = datas["id"]
+        print(id)
+        wb = MainRequest.objects.filter(id=id)
+        print(wb)
+        if len(wb) == 0:
+            resp = {"status": "1", "data": u"error request not exists"}
+            return HttpResponse(json.dumps(resp), content_type="application/json")
+        else:
+            wb = wb[0]
+        wb.is_share = True
+        wb.save()
+        resp = {"status": "0", "data": u"share success"}
+        return HttpResponse(json.dumps(resp), content_type="application/json")
+    except Exception as e:
+        print(e)
+        resp = {"status": "3", "data": u"system error"}
+        return HttpResponse(json.dumps(resp), content_type="application/json")
