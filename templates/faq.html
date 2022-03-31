@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Frequently Asked Questions</title>
+        <!--Ion icons-->
+        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        <input type="button" value="Back" onclick="history.back()" style="list-style: none; display: inline-block; padding: 8px 12px; position: relative; color:#fff; text-decoration: none; font-size: 14; background: transparent; border:  none; transform: translate(20%, 100%);>
+        <link rel="stylesheet">
+        <style type="text/css">
+            *,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+
+}
+
+html{
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    box-sizing: border-box;
+}
+
+section{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)),url('/static/img/checkreq.jpg');
+    background-size:cover;
+    background-color: #3c4053;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container{
+    width: 100%;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 1.5 rem;
+}
+
+.faq-item{
+    background-color: 283042;
+    border-radius: .4rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    box-shadow: .5rem 2px .5rem rgba(0,0,0,.1);
+}
+
+.faq-link{
+    font-size: 1.6rem;
+    color: rgb(255,255,255,.8);
+    text-decoration: none;
+    background-color: 283042;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+
+}
+
+.faq-link i{
+    color: #e7d5ff;
+    padding: .5rem;
+}
+
+.faq-link .ion-md-remove{
+    display:none;
+}
+
+.answer{
+    max-height: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: #212838;
+    transition: max-height 650ms;
+    
+}
+
+.answer::before{
+    content:"";
+    position: absolute;
+    width: .6rem;
+    height: 90%;
+    background-color: #8fc460;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    
+}
+
+.answer p{
+    font-size: 1.4rem;
+    color: rgb(255,255,255,.6);
+    padding: 2rem;
+}
+
+.faq-item:target .answer{
+    max-height: 20rem;
+}
+
+.faq-item:target .faq-link .ion-md-add{
+    display: none;
+}
+
+.faq-item:target .faq-link .ion-md-remove{
+    display: block;
+}
+
+
+        </style>
+        
+        <section>
+
+           
+            <div class="container">
+                <h1 style="font-size: 50px; font-family: Verdana, Geneva, Tahoma, sans-serif; color:#fff">Frequently Asked Questions</h1>
+                    
+                    <div class="faq-item" id="question1">
+                        <a class="faq-link" href="#question1">
+                            Who can see my submitted questions?
+                            <i class="icon ion-md-add"></i>
+                            <i class="icon ion-md-remove"></i>
+                        </a>
+                        <div class="answer">
+                            <p>
+                                Only administrators can see your submitted questions, other students can not.
+                             </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" id="question2">
+                        <a class="faq-link" href="#question2">
+                            How long does it usually take to get a reply?
+                            <i class="icon ion-md-add"></i>
+                            <i class="icon ion-md-remove"></i>
+                        </a>
+                        <div class="answer">
+                            <p>
+                                You can expect a response within 3-5 working days, however depending on the volume of questions, this may be longer or shorter.
+                             </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" id="question3">
+                        <a class="faq-link" href="#question3">
+                            I forgot my password. How do I recover it?
+                            <i class="icon ion-md-add"></i>
+                            <i class="icon ion-md-remove"></i>
+                        </a>
+                        <div class="answer">
+                            <p>
+                                Click the forgot password button and follow the link in your email to reset your password
+                             </p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" id="question4">
+                        <a class="faq-link" href="#question4">
+                            How do I report a problem that I found in your application?
+                            <i class="icon ion-md-add"></i>
+                            <i class="icon ion-md-remove"></i>
+                        </a>
+                        <div class="answer">
+                            <p>
+                                Email an administrator
+                             </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

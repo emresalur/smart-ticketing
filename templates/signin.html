@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>signin</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+</head>
+
+
+	<body style="background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)),url('/static/img/query.jpg');
+background-size: cover;
+">
+	
+		<a href="signin.html"></a><div><img src="/static/img/KCLOGO.jpg" unselectable="on" width="225" height="150" ></div>
+	
+	
+	
+	<div class="container">
+
+		<nav class="navbar navbar-inverse" style="margin-top: 10px;opacity:0.7">
+		  <div class="container-fluid">
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav navbar-right">
+				<li><a href="/">{{ request.user.username }}</a></li>
+				<li><a href="/accounts/logout">Log out</a></li>
+			  </ul>
+			</div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+
+		
+		<section class="header">
+			
+			<nav style="display:flex;
+			padding: 2% 6%;
+			justify-content: space-between;
+			align-items: center;
+			">
+				<div class = "nav-links" style="flex: 1; text-align: right;">
+					<ul>
+						<li style="list-style: none; display: inline-block; padding: 8px 12px; position: relative;"><a href="/requests" style="color:#fff; text-decoration: none; font-size: 14;">Submit Request</a></li>
+						<li style="list-style: none; display: inline-block; padding: 8px 12px; position: relative;"><a href="/myrequests" style="color:#fff; text-decoration: none; font-size: 14;">Existing Requests</a></li>
+						<li style="list-style: none; display: inline-block; padding: 8px 12px; position: relative;"><a href="/faq" style="color:#fff; text-decoration: none; font-size: 14;">FAQs</a></li>
+					</ul>
+				</div>
+			</nav>
+
+
+			<div class="text-box" style="width: 90%; color: #fff; position: absolute; top:50%; left:50%; transform: translate(-50%, -40%); text-align: center; border: 1px solid #fff; padding: 24px 24px; ">
+				<u><h1 style="font-size: 50px; font-family: Verdana, Geneva, Tahoma, sans-serif;">King's Smart Ticketing Service</h1></u>
+				
+				<p style="font-size: 20px; color:#fff; margin: 10px 0 40px;">
+				
+					<br>To submit a request, click 'Submit Request' in the top right-hand corner</br>
+					<br>To check your existing requests, click 'Existing Requests'</br>
+					<br>If you have any questions, please check our Frequently asked questions page before contacting an administrator</br>
+
+				</p>
+			</div>
+
+		</section>
+
+
+		
+		
+
+	</div>
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdn.bootcss.com/FileSaver.js/2014-11-29/FileSaver.js"></script>
+	<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/validate.js"></script>
+	<script>
+		function toValidate(){
+			var val = new validate({
+				rules:{
+					card_name2:"email",
+					card_name3:"password"
+				},
+				submitFun:function(){
+					toSubmit();
+				}
+			})
+		}
+		function toSubmit(){
+			alert("password ！！！")
+		}
+	</script>
+<script>
+    {% if msg %}
+        alert("{{ msg }}")
+    {% endif %}
+</script>
+</body>
+
+</html>

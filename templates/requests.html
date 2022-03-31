@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Requests</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+	<style type="text/css">
+		h1 {
+			font-family: "微软雅黑";
+			font-size: 40px;
+			margin: 20px 0;
+			border-bottom: solid 1px #ccc;
+			padding-bottom: 20px;
+			letter-spacing: 2px;
+		}
+
+		.time-item strong {
+			background: #C71C60;
+			color: #fff;
+			line-height: 49px;
+			font-size: 36px;
+			font-family: Arial;
+			padding: 0 10px;
+			margin-right: 10px;
+			border-radius: 5px;
+			box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+		}
+
+		#day_show {
+			float: left;
+			line-height: 49px;
+			color: #c71c60;
+			font-size: 32px;
+			margin: 0 10px;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+
+		.item-title .unit {
+			background: none;
+			line-height: 49px;
+			font-size: 24px;
+			padding: 0 10px;
+			float: left;
+		}
+
+		label {
+			display: inline-block;
+			max-width: 100%;
+			margin-bottom: 5px;
+			font-weight: 700;
+			color: #fff;
+		}
+	</style>
+
+	<input type="button" value="Back" onclick="history.back()" style="list-style: none; display: inline-block; padding: 8px 12px; position: relative; color:#fff; text-decoration: none; font-size: 14; background: transparent; border:  none; transform: translate(20%, 100%);">
+</head>
+
+	
+
+<body style="background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)),url('/static/img/requestpic.jpg');
+background-size: cover;
+">
+	<div class="container">
+		
+		<h1 style="font-size: 50px; font-family: Verdana, Geneva, Tahoma, sans-serif; color:#fff">Submit Request</h1>
+		
+		<div class="time-item">
+			<strong id="hour_show"><s id="h"></s>0</strong>
+			<strong id="minute_show"><s></s>01</strong>
+			<strong id="second_show"><s></s>00</strong>
+		</div>
+		<form action="/requests" method="post" style="border: 1px solid #8e8b8b;padding: 20px;margin-top: 20px; transform: translate(0%, 30%)">
+            {% csrf_token %}
+			<fieldset>
+				<div class="form-group">
+					<label>Subject</label>
+					<input type="text" class="form-control" name="subject" placeholder="" />
+				</div>
+				<div class=" form-group">
+					<label>Description</label></br>
+					<textarea name="descrition" id="descrition" style="width: 100%;" rows="10"></textarea>
+				</div>
+				<div class="form-group">
+					<label>Priority</label>
+					<input type="text" class="form-control" name="priority" placeholder="" />
+				</div>
+				<button type="submit" class="btn btn-default" style="text-align: right;">Submit</button>
+			</fieldset>
+		</form>
+	</div>
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var intDiff = parseInt(60);
+		function timer(intDiff) {
+			window.setInterval(function () {
+				var day = 0,
+					hour = 0,
+					minute = 0,
+					second = 0;	
+				if (intDiff > 0) {
+					day = Math.floor(intDiff / (60 * 60 * 24));
+					hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+					minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+					second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+				}
+				if (minute <= 9) minute = '0' + minute;
+				if (second <= 9) second = '0' + second;
+				$('#hour_show').html('<s id="h"></s>' + hour + '');
+				$('#minute_show').html('<s></s>' + minute + '');
+				$('#second_show').html('<s></s>' + second + '');
+				intDiff--;
+			}, 1000);
+		}
+		$(function () {
+			timer(intDiff);
+		});
+		function toSubmit(){
+			alert("pass！！！")
+			var test = window.location.href;
+			window.open(test.replace('requests','myrequests'));
+		}
+	</script>
+<script>
+    {% if msg %}
+        alert("{{ msg }}")
+    {% endif %}
+</script>
+</body>
+
+</html>
