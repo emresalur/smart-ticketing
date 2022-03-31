@@ -8,7 +8,15 @@
 	<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
 </head>
 
-<body style="background: url('/static/img/bg2.jpg');">
+
+	<body style="background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)),url('/static/img/query.jpg');
+background-size: cover;
+">
+	
+		<a href="signin.html"></a><div><img src="/static/img/KCLOGO.jpg" unselectable="on" width="225" height="150" ></div>
+	
+	
+	
 	<div class="container">
 
 		<nav class="navbar navbar-inverse" style="margin-top: 10px;opacity:0.7">
@@ -17,22 +25,48 @@
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			  <ul class="nav navbar-nav navbar-right">
 				<li><a href="/">{{ request.user.username }}</a></li>
-				<li><a href="/accounts/logout">logout</a></li>
+				<li><a href="/accounts/logout">Log out</a></li>
 			  </ul>
 			</div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
 
+		
+		<section class="header">
+			
+			<nav style="display:flex;
+			padding: 2% 6%;
+			justify-content: space-between;
+			align-items: center;
+			">
+				<div class = "nav-links" style="flex: 1; text-align: right;">
+					<ul>
+						<li style="list-style: none; display: inline-block; padding: 8px 12px; position: relative;"><a href="/requests" style="color:#fff; text-decoration: none; font-size: 14;">Submit Request</a></li>
+						<li style="list-style: none; display: inline-block; padding: 8px 12px; position: relative;"><a href="/myrequests" style="color:#fff; text-decoration: none; font-size: 14;">Existing Requests</a></li>
+						<li style="list-style: none; display: inline-block; padding: 8px 12px; position: relative;"><a href="/faq" style="color:#fff; text-decoration: none; font-size: 14;">FAQs</a></li>
+					</ul>
+				</div>
+			</nav>
 
 
-		<form action="#" method="post" style="border: 1px solid #8e8b8b;padding: 20px;margin-top: 20px;">
-            {% csrf_token %}
-				<a class="btn btn-default" href="/requests">Submit Requests</a>
-			<br><br><br>
-				<a class="btn btn-default" href="/myrequests">Check Existing Requests</a>
-            <br><br><br>
-				<a class="btn btn-default" href="/faq">Frequently Asked Questions</a>
-		</form>
+			<div class="text-box" style="width: 90%; color: #fff; position: absolute; top:50%; left:50%; transform: translate(-50%, -60%); text-align: center;">
+				<h1 style="font-size: 50px; font-family: Verdana, Geneva, Tahoma, sans-serif;  ">King's Smart Ticketing Service</h1>
+				
+				<p style="font-size: 20px; color:#fff; margin: 10px 0 40px;">
+				
+					<br>To submit a request, click 'Submit Request' in the top right-hand corner</br>
+					<br>To check your existing requests, click 'Existing Requests'</br>
+					<br>If you have any questions, please check our Frequently asked questions page before contacting an administrator</br>
+
+				</p>
+			</div>
+
+		</section>
+
+
+		
+		
+
 	</div>
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
