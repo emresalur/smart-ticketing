@@ -12,11 +12,11 @@
 	<body style="background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)),url('/static/img/query.jpg');
 background-size: cover;
 ">
-	
+
 		<a href="signin.html"></a><div><img src="/static/img/KCLOGO.jpg" unselectable="on" width="225" height="150" ></div>
-	
-	
-	
+
+
+
 	<div class="container">
 
 		<nav class="navbar navbar-inverse" style="margin-top: 10px;opacity:0.7">
@@ -24,16 +24,16 @@ background-size: cover;
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			  <ul class="nav navbar-nav navbar-right">
-				<li><a href="/">{{ request.user.username }}</a></li>
-				<li><a href="/accounts/logout">Log out</a></li>
+				<li><a href="/">Welcome {{ request.user.username }}</a></li>
+				<li><a href="/accounts/logout">Log Out</a></li>
 			  </ul>
 			</div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
 
-		
+
 		<section class="header">
-			
+
 			<nav style="display:flex;
 			padding: 2% 6%;
 			justify-content: space-between;
@@ -51,9 +51,9 @@ background-size: cover;
 
 			<div class="text-box" style="width: 90%; color: #fff; position: absolute; top:50%; left:50%; transform: translate(-50%, -40%); text-align: center; border: 1px solid #fff; padding: 24px 24px; ">
 				<u><h1 style="font-size: 50px; font-family: Verdana, Geneva, Tahoma, sans-serif;">King's Smart Ticketing Service</h1></u>
-				
+
 				<p style="font-size: 20px; color:#fff; margin: 10px 0 40px;">
-				
+
 					<br>To submit a request, click 'Submit Request' in the top right-hand corner</br>
 					<br>To check your existing requests, click 'Existing Requests'</br>
 					<br>If you have any questions, please check our Frequently asked questions page before contacting an administrator</br>
@@ -64,8 +64,8 @@ background-size: cover;
 		</section>
 
 
-		
-		
+
+
 
 	</div>
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
