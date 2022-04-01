@@ -23,15 +23,15 @@
 			{% csrf_token %}
             <fieldset>
 				<div class="form-group">
-					<label>EMAIL:</label>
+					<label>Email:</label>
 					<input type="email" class="form-control" name="username" id="card_name2" placeholder="" />
 				</div>
 				<div class=" form-group">
-					<label>password:</label>
+					<label>Password:</label>
 					<input type="password" class="form-control" name="password" id="card_name3"/>
 				</div>
-				<button type="submit" class="btn btn-default" id="singup">sign up</button>
-				<a href="/accounts/login">sign in</a>
+				<button type="submit" class="btn btn-default" id="singup">Sign Up</button>
+				<a href="/accounts/login">Sign In</a>
 			</fieldset>
 		</form>
 	</div>
@@ -46,7 +46,7 @@
             alert("{{ msg }}")
         {% endif %}
     </script>
-	
+
 	<script>
 		function toValidate(){
 			var val = new validate({
