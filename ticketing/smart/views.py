@@ -202,5 +202,4 @@ def search(request):
 		error_msg = "Please type the keyword."
 		return render(request, 'templates/indel.html', {'error_msg': error_msg})
 post_list = MainRequest.objects.filter(Q(descrition__icontains=q)|Q(subject__icontains=q))
-return render(request, 'templates/indel.html', {'error_msg': error_msg,
-'post_list': post_list})
+return render(request, 'templates/indel.html', {'error_msg': error_msg,'post_list': post_list})
