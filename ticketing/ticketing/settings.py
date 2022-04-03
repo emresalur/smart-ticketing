@@ -86,13 +86,18 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+  # test database
+        'TEST': {
+            'CHARSET':'utf8',
+            'NAME': 'test',  # A database named test will be generated during the test, and Django will automatically delete the database after the test is over
+        }
     }
 }
 # DATABASES = {
 #
 #     'default': {
 #          'ENGINE': 'django.db.backends.mysql',
-#          #数据库名字
+#          #database name
 #          'NAME': 'study',
 #          'USER': 'root',
 #          'PASSWORD': '123456',
@@ -152,7 +157,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-# 设置上传图片的地址
+# adress for img 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -169,11 +174,11 @@ LOGOUT_URL = '/accounts/logout'
 
 #mail config
 EMAIL_HOST = 'smtp.163.com'
-# 设置端口号，为数字
+# number port
 EMAIL_PORT = 25
-#设置发件人邮箱
+#email address
 EMAIL_HOST_USER = '15010226955@163.com'
-# 设置发件人 授权码
+# set sender authorization code
 EMAIL_HOST_PASSWORD = 'PWTYOXQEQWFQYSMO'
-# 设置是否启用安全链接
+# Set whether to enable safe links
 EMAIL_USER_TLS = True
