@@ -25,13 +25,13 @@ def my_info(request):
             print(username)
             print(mobile)
             if len(location) == 0:
-                msg = "位置不能为空"
+                msg = "Location cannot be empty"
                 return render(request, "my_info.html", locals())
             if username == "" or username == None or len(username) < 6:
-                msg = "用户名不能为空，必须大于6位"
+                msg = "Username can not be empty, must be greater than 6 digits"
                 return render(request, "my_info.html", locals())
             if mobile == "" or mobile == None or len(mobile) != 11:
-                msg = "手机号不能为空，必须11位且格式正确"
+                msg = "Mobile number cannot be empty，must be 11 digits and in the correct format"
                 return render(request, "my_info.html", locals())
             if avatar != None:
                 stamp = str((int(round(time.time() * 1000))))
@@ -50,11 +50,11 @@ def my_info(request):
             if avatar != None:
                 user.avatar = url
             user.save()
-            msg = "修改成功"
+            msg = "Successfully modified"
             return render(request, "my_info.html", locals())
     except Exception as e:
         print(e)
-        msg = "系统错误"
+        msg = "system error"
         return render(request, "my_info.html", locals())
 
 
@@ -124,7 +124,7 @@ def user_login(request):
                 password = login_form.cleaned_data["password"]
                 user = authenticate(username=username, password=password)
                 if user is not None:
-                    # user.backend = 'django.contrib.auth.backends.ModelBackend' # 指定默认的登录验证方式
+                    # user.backend = 'django.contrib.auth.backends.ModelBackend' # Specify the default login authentication method
                     login(request, user)
                     if user.is_teacher:
                         return redirect("/teacher")
@@ -135,7 +135,7 @@ def user_login(request):
                     return render(request, 'index.html', {'login_form': login_form, "errorinfo":errorinfo})
 
             else:
-                errorinfo = "账号或密码不正确或格式错误"
+                errorinfo = "The account number or password is incorrect or in the wrong format"
                 return render(request, 'index.html', {'login_form': login_form, "errorinfo":errorinfo})
         else:
             login_form = LoginForm()
