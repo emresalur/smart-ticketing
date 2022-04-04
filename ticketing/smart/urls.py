@@ -1,5 +1,6 @@
 from django.conf.urls import url
 from .views import *
+from smart import views
 
 urlpatterns = [
     url(r"^$", index, name="index"),
@@ -13,4 +14,5 @@ urlpatterns = [
     url(r"^go_active$", go_active, name="go_active"),
     url(r"^active$", active, name="active"),
     url(r"^admin_detail$", admin_detail, name="admin_detail"),
+    url(r'^search/$', views.search, name='search'),
 ]
