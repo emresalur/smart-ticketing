@@ -92,7 +92,7 @@ background-size: cover;
 	</div>
 	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
 	<script type="text/javascript">
-		var intDiff = parseInt(60);
+		var intDiff = parseInt(0);
 		function timer(intDiff) {
 			window.setInterval(function () {
 				var day = 0,
@@ -107,10 +107,10 @@ background-size: cover;
 				}
 				if (minute <= 9) minute = '0' + minute;
 				if (second <= 9) second = '0' + second;
-				$('#hour_show').html('<s id="h"></s>' + hour + '');
-				$('#minute_show').html('<s></s>' + minute + '');
-				$('#second_show').html('<s></s>' + second + '');
-				intDiff--;
+				$('#hour_show').html('<s id="h"></s>' + hour + 'hour');
+				$('#minute_show').html('<s></s>' + minute + 'minutes');
+				$('#second_show').html('<s></s>' + second + 'seconds');
+				intDiff++;
 			}, 1000);
 		}
 		$(function () {
