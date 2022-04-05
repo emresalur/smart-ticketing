@@ -6,7 +6,8 @@ Isaac Addo,
 Zejin Deng,
 Haoxuan Feng,
 Yuanfei Qiu,
-Emre Salur
+Emre Salur,
+Mateia-Andreea Curigut
 
 Group Members:
 Isaac Addo
