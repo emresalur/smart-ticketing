@@ -35,18 +35,18 @@
                     <label>reply</label></br>
                     <input type="text" class="form-control" name="" placeholder="to:" value="{{ mainReq.user.username }}"/>
                     <input type="hidden" class="form-control" name="rid" value="{{ mainReq.id }}"/>
-                    <textarea placeholder="input your replay" name="replay" id="descrition" style="width: 100%;" rows="10">{{ mainReq.reply_content }}</textarea>
+                    <textarea placeholder="input your reply" name="reply" id="descrition" style="width: 100%;" rows="10">{{ mainReq.reply_content }}</textarea>
 					<button class="btn-info btn">share</button>
 				</div>
                 <div class="form-group">
 					<hr>
                     {% if mainReq.reply_content %}
                         <div style="display: flex;">
-                            <label>{{ mainReq.reply_user.username }}</label>&nbsp;&nbsp;&nbsp;&nbsp;<label>{{ now_date }}</label> &nbsp;&nbsp;&nbsp;&nbsp;<label>have replay</label>
+                            <label>{{ mainReq.reply_user.username }}</label>&nbsp;&nbsp;&nbsp;&nbsp;<label>{{ now_date }}</label> &nbsp;&nbsp;&nbsp;&nbsp;<label>have replied</label>
                         </div>
                     {% else %}
                         <div style="display: flex;">
-                            <button type="submit">replay<button>
+                            <button type="submit">reply<button>
                         </div>
                     {% endif %}
                 </div>

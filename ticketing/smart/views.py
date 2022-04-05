@@ -172,7 +172,7 @@ def admin_detail(request):
             mainReq = mainReq[0]
             return render(request, "admin_detail.html", locals())
         if request.method == "POST":
-            replay = request.POST.get("replay", "")
+            reply = request.POST.get("reply", "")
             mid = request.POST.get("rid", "")
             if len(mid) == 0:
                 msg = "no rid"
@@ -183,9 +183,9 @@ def admin_detail(request):
                 return render(request, "error.html", locals())
             mainReq = mainReq[0]
             mainReq.reply_user = user
-            mainReq.reply_content = replay
+            mainReq.reply_content = reply
             mainReq.save()
-            res = send_mail('requests replay', 'your requests have be reply, just have a look! ',
+            res = send_mail('requests reply', 'your requests have be replied, just have a look! ',
                             settings.EMAIL_HOST_USER, [mainReq.user.email, ])
             return redirect("/teacher")
     except Exception as e:

@@ -9,7 +9,7 @@ class MainRequest(models.Model):
     descrition = models.CharField(verbose_name='descrition', blank=True, null=True, max_length=5200, default="")
     priority = models.CharField(verbose_name='priority', blank=True, null=True, max_length=200, default="")
     user = models.ForeignKey(UserProfile, verbose_name="user", on_delete=models.CASCADE, related_name="main")
-    reply_user = models.ForeignKey(UserProfile, verbose_name="reply_user", on_delete=models.CASCADE, related_name="replay", blank=True, null=True)
+    reply_user = models.ForeignKey(UserProfile, verbose_name="reply_user", on_delete=models.CASCADE, related_name="reply", blank=True, null=True)
     reply_content = models.CharField(verbose_name='reply_content', blank=True, null=True, max_length=200, default="")
 
     def __str__(self):
