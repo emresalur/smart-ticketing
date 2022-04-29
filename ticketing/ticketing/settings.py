@@ -10,8 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
+import dj_database_url
+import django_heroku
 from pathlib import Path
 import pymysql
+
+ALLOWED_HOSTS = ['*']
 
 pymysql.install_as_MySQLdb()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -54,6 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'ticketing.urls'
@@ -96,7 +101,7 @@ DATABASES = {
 # DATABASES = {
 #
 #     'default': {
-#          'ENGINE': 'django.db.backends.mysql',
+#          'ENGINE': 'django.db.backends.postgresql_psycopg2',
 #          #database name
 #          'NAME': 'study',
 #          'USER': 'root',
@@ -148,7 +153,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = '/static/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_DIRS = (
     os.path.join(BASE_DIR, 'static')
@@ -182,3 +191,6 @@ EMAIL_HOST_USER = '15010226955@163.com'
 EMAIL_HOST_PASSWORD = 'PWTYOXQEQWFQYSMO'
 # Set whether to enable safe links
 EMAIL_USER_TLS = True
+
+django_heroku.settings(locals())
+
